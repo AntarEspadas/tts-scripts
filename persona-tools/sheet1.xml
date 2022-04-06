@@ -1,0 +1,106 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Panel color="#00000000" width="2500" height="3500" scale="-0.125 -0.125 0.125" position="0 0 -5.1" verticalOverflow="Overflow">
+
+    <Defaults>
+        <InputField color="#00000000" textAlignment="MiddleCenter" onEndEdit="saveValue" horizontalOverflow="Wrap" resizeTextForBestFit="true" resizeTextMinSize="10" pivot="0 1"/>
+        <InputField class="header" resizeTextMaxSize="60" fontStyle="Bold"/>
+        <InputField class="combat-skill" characterValidation="Decimal" resizeTextForBestFit="true" resizeTextMaxSize="100" onEndEdit="saveValue"/>
+        <InputField class="social-skill-num" characterValidation="Decimal" resizeTextMaxSize="70" />
+        <InputField class="social-skill-title" resizeTextMaxSize="70"/>
+        <InputField class="type" resizeTextMaxSize="70"/>
+        <InputField class="resistance" resizeTextMaxSize="95"/>
+        <Toggle class="dd" toggleHeight="75" toggleWidth="75" onValueChanged="saveToggle" />
+    </Defaults>
+
+    <InputField class="header" id="name" width="785" height="70" position="-430 1500 0" />
+    <InputField class="header" id="level" width="165" height="70" position="-430 1375 0" characterValidation="Integer"/>
+    <InputField class="header" id="arcana" width="380" height="70" position="-30 1375 0" />
+    <InputField class="header" id="player" width="390" height="70" position="615 1375 0" />
+    <InputField class="header" id="class" width="390" height="70" position="615 1500 0" />
+
+    <GridLayout color="#00000000" height="420" width="1025" position="-1085 980 0" pivot="0 1" constraint="FixedColumnCount" constraintCount="3" cellSize="280 160" spacing="97 75">
+        <InputField class="combat-skill" id="str" />
+        <InputField class="combat-skill" id="tec" />
+        <InputField class="combat-skill" id="vit" />
+        <InputField class="combat-skill" id="mag" />
+        <InputField class="combat-skill" id="agi" />
+        <InputField class="combat-skill" id="lck" />
+    </GridLayout>
+
+    <InputField id="max-hp" width="180" height="75" position="340 1135 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="current-hp" width="395" height="295" position="116 1048 0" resizeTextMaxSize="200" onEndEdit="evaluateValue" />
+    <Toggle class="dd" id="dd1" position="172 700 0" />
+    <Toggle class="dd" id="dd2" position="315 700 0" />
+    <Toggle class="dd" id="dd3" position="455 700 0" />
+
+    <InputField id="dmg-red" width="180" height="75" position="323 620 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="energy" width="125" height="75" position="562 1100 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="energy-max" width="125" height="75" position="712 1100 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="conditions" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="30" width="502" height="410" position="564 948 0" />
+
+    <GridLayout color="#00000000" position="-846 280 0" spacing="32 10" cellSize="110 78" constraint="FixedColumnCount" constraintCount="2" width="260" height="550" pivot="0 1" >
+        <InputField id="knowledge-pts" class="social-skill-num" />
+        <InputField id="knowledge-tier" class="social-skill-num" />
+        <InputField id="discipline-pts" class="social-skill-num" />
+        <InputField id="discipline-tier" class="social-skill-num" />
+        <InputField id="ampathy-pts" class="social-skill-num" />
+        <InputField id="ampathy-tier" class="social-skill-num" />
+        <InputField id="charm-pts" class="social-skill-num" />
+        <InputField id="charm-tier" class="social-skill-num" />
+        <InputField id="expression-pts" class="social-skill-num" />
+        <InputField id="expression-tier" class="social-skill-num" />
+        <InputField id="courage-pts" class="social-skill-num" />
+        <InputField id="courage-tier" class="social-skill-num" />
+    </GridLayout>
+
+    <GridLayout color="#00000000" position="-558 280 0" spacing="32 10" cellSize="250 78" constraint="FixedColumnCount" constraintCount="1" width="260" height="550" pivot="0 1" >
+        <InputField class="social-skill-title" id="knowledge-title" />
+        <InputField class="social-skill-title" id="discipline-title" />
+        <InputField class="social-skill-title" id="ampathy-title" />
+        <InputField class="social-skill-title" id="charm-title" />
+        <InputField class="social-skill-title" id="expression-title" />
+        <InputField class="social-skill-title" id="courage-title" />
+    </GridLayout>
+ 
+    <InputField id="aspect-points" width="270" height="75" position="717 433 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="aspects" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="30" width="1330" height="610" position="-230 335 0" />
+
+    <InputField id="persona-name" width="480" height="75" position="-818 -471 0" resizeTextMaxSize="70" />
+    <InputField id="persona-level" width="120" height="75" position="-225 -471 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="persona-sp" width="110" height="75" position="8 -471 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="conviction" width="935" height="75" position="-818 -567 0" resizeTextMaxSize="70" />
+    <InputField color="#00000000" id="natural-skill" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="1200" height="165" position="-1082 -718 0" />
+
+    <GridLayout color="#00000000" position="380 -477 0" spacing="10 10" cellSize="290 78" constraint="FixedRowCount" constraintCount="2" width="600" height="200" pivot="0 1" >
+        <InputField class="type" id="type1" />
+        <InputField class="type" id="type2" />
+        <InputField class="type" id="type3" />
+        <InputField class="type" id="type4" />
+    </GridLayout>
+ 
+    <GridLayout color="#00000000" position="258 -941 0" spacing="30 200" cellSize="260 100" constraint="FixedRowCount" constraintCount="3" width="900" height="800" pivot="0 1" >
+        <InputField class="resistance" id="phys-res" />
+        <InputField class="resistance" id="fire-res" />
+        <InputField class="resistance" id="ice-res" />
+        <InputField class="resistance" id="elec-res" />
+        <InputField class="resistance" id="wind-res" />
+        <InputField class="resistance" id="light-res" />
+        <InputField class="resistance" id="dark-res" />
+        <InputField class="resistance" id="status-res" />
+        <InputField class="resistance" id="intel-res" />
+    </GridLayout>
+ 
+    <InputField id="weapon" width="480" height="75" position="-1112 -1122 0" resizeTextMaxSize="70" />
+    <InputField id="weapon-dmg" width="175" height="75" position="-612 -1122 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="weapon-reach" width="120" height="75" position="-416 -1122 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="weapon-effect" width="435" height="75" position="-269 -1122 0" resizeTextMaxSize="70" />
+
+    <InputField id="armor" width="480" height="75" position="-1112 -1312 0" resizeTextMaxSize="70" />
+    <InputField id="armor-dmg-red" width="160" height="75" position="-612 -1312 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="armor-effect" width="580" height="75" position="-416 -1312 0" resizeTextMaxSize="70" />
+
+    <InputField id="accessory" width="480" height="75" position="-1112 -1523 0" resizeTextMaxSize="70" />
+    <InputField id="accessory-effect" width="775" height="75" position="-612 -1523 0" resizeTextMaxSize="70" />
+
+</Panel>

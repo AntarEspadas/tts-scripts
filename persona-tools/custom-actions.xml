@@ -1,0 +1,32 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Panel color="#00000000" width="2200" height="800" scale="0.1 0.4 0.1" position="0 0 -22">
+    <Defaults>
+        <Row preferredHeight="250" />
+        <Panel class="list" color="#000000" />
+        <Text fontSize="100" color="White" resizeTextForBestFit="true" resizeTextMaxSize="500" resizeTextMinSize="1" />
+        <Button color="#000000" />
+    </Defaults>
+    <Panel id="main-table" color="#00000000" position="40 -800 0">
+        <TableLayout cellSpacing="10" columnWidths="2120">
+            <Row preferredHeight="250">
+                <Cell>
+                    <Panel class="list">
+                        <Button onClick="activate_white_fog">
+                            <Text>Activate Fog</Text>
+                        </Button>
+                    </Panel>
+                </Cell>
+            </Row>
+            <Row preferredHeight="250">
+                <Cell>
+                    <Panel class="list">
+                        <Button onClick="disable_fog">
+                            <Text>Disable Fog</Text>
+                        </Button>
+                    </Panel>
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+</Panel>

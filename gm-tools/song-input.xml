@@ -1,0 +1,7 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+
+<Panel color="#00000000" width="1700" height="900" scale="-0.125 -0.35 0.125" position="0 0 -22" verticalOverflow="Overflow">
+    <InputField id="title" color="#222222" textColor="White" pivot="0.5 0.5" placeholder="Title" textAlignment="MiddleCenter" resizeTextForBestFit="true" resizeTextMaxSize="1000" rotation="0 0 90" position="-770 0 0" width="850" height="100" />
+    <InputField id="description" color="#222222" placeholder="Enter the YouTube URLs for the songs here, one per line, then hit 'Done' in the main card. Lines starting with '#' will be ignored" textColor="White" fontSize="35" width="850" height="1500" lineType="MultiLineNewLine" position="65 0 0" rotation="0 0 90"/>
+</Panel>

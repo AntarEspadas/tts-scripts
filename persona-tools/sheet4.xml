@@ -1,0 +1,153 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Panel color="#00000000" width="2500" height="3500" scale="-0.125 -0.125 0.125" position="0 0 -5.1" verticalOverflow="Overflow">
+
+    <Defaults>
+        <InputField color="#00000000" textAlignment="MiddleCenter" onEndEdit="saveValue" horizontalOverflow="Wrap" resizeTextForBestFit="true" resizeTextMinSize="10" pivot="0 1" />
+        <Toggle class="dd" toggleHeight="75" toggleWidth="75" onValueChanged="saveToggle" />
+    </Defaults>
+
+    <InputField id="persona-name" width="480" height="75" position="-1001 1540 0" resizeTextMaxSize="70" />
+    <InputField id="persona-arcana" width="270" height="75" position="-268 1540 0" resizeTextMaxSize="70" />
+    <InputField id="persona-level" width="120" height="75" position="102 1540 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="persona-sp" width="110" height="75" position="307 1540 0" resizeTextMaxSize="70" characterValidation="Decimal" />
+    <InputField id="natural-skill" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="1554" height="200" position="-1130 1396 0" />
+
+    <GridLayout color="#00000000" position="500 1488 0" spacing="10 10" cellSize="290 78" constraint="FixedRowCount" constraintCount="2" width="600" height="200" pivot="0 1">
+        <InputField class="type" id="type1" />
+        <InputField class="type" id="type2" />
+        <InputField class="type" id="type3" />
+        <InputField class="type" id="type4" />
+    </GridLayout>
+
+    <GridLayout color="#00000000" position="445 1154 0" spacing="62 117" cellSize="193 50" constraint="FixedRowCount" constraintCount="3" width="900" height="800" pivot="0 1">
+        <InputField class="resistance" id="phys-res" />
+        <InputField class="resistance" id="fire-res" />
+        <InputField class="resistance" id="ice-res" />
+        <InputField class="resistance" id="elec-res" />
+        <InputField class="resistance" id="wind-res" />
+        <InputField class="resistance" id="light-res" />
+        <InputField class="resistance" id="dark-res" />
+        <InputField class="resistance" id="status-res" />
+        <InputField class="resistance" id="intel-res" />
+    </GridLayout>
+
+    <InputField id="str" width="120" height="75" position="-1015 1021 0" resizeTextMaxSize="70" />
+    <InputField id="tec" width="120" height="75" position="-1015 934 0" resizeTextMaxSize="70" />
+    <InputField id="vit" width="120" height="75" position="-1015 845 0" resizeTextMaxSize="70" />
+    <InputField id="mag" width="120" height="75" position="-766 1021 0" resizeTextMaxSize="70" />
+    <InputField id="agi" width="120" height="75" position="-766 937 0" resizeTextMaxSize="70" />
+    <InputField id="lck" width="120" height="75" position="-766 852 0" resizeTextMaxSize="70" />
+    <InputField id="knowledge" width="120" height="75" position="-384 1025 0" resizeTextMaxSize="70" />
+    <InputField id="discipline" width="120" height="75" position="-384 942 0" resizeTextMaxSize="70" />
+    <InputField id="empathy" width="120" height="75" position="-384 855 0" resizeTextMaxSize="70" />
+    <InputField id="charm" width="120" height="75" position="-36 1042 0" resizeTextMaxSize="70" />
+    <InputField id="expression" width="120" height="75" position="-36 953 0" resizeTextMaxSize="70" />
+    <InputField id="courage" width="120" height="75" position="-36 863 0" resizeTextMaxSize="70" />
+
+    <Panel color="#FFFFFF00" position="-1167 629 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-1" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-1" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-1" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-1" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-1" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-1" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-1" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-1" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-1" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="34 629 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-2" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-2" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-2" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-2" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-2" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-2" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-2" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-2" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-2" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="-1167 161 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-3" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-3" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-3" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-3" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-3" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-3" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-3" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-3" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-3" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="34 161 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-4" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-4" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-4" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-4" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-4" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-4" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-4" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-4" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-4" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="-1167 -304 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-5" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-5" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-5" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-5" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-5" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-5" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-5" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-5" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-5" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="34 -310 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-6" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-6" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-6" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-6" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-6" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-6" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-6" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-6" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-6" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="-1167 -780 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-7" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-7" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-7" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-7" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-7" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-7" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-7" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-7" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-7" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+    <!-- Copy of the above panel -->
+    <Panel color="#FFFFFF00" position="34 -780 0" pivot="0 1" width="1150" height="360">
+        <InputField id="spell-8" width="535" height="75" position="-575 180 0" resizeTextMaxSize="70" />
+        <InputField id="type-8" width="200" height="75" position="-575 43 0" resizeTextMaxSize="70" />
+        <InputField id="cat-8" width="110" height="75" position="-335 43 0" resizeTextMaxSize="70" />
+        <InputField id="tier-8" width="130" height="75" position="-185 43 0" resizeTextMaxSize="70" />
+        <InputField id="target-8" width="535" height="75" position="-575 -93 0" resizeTextMaxSize="70" />
+        <InputField id="effect-8" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="565" height="205" position="-5 170 0" />
+        <InputField id="uses1-8" width="130" height="75" position="5 -93 0" resizeTextMaxSize="70" />
+        <InputField id="uses2-8" width="130" height="75" position="150 -93 0" resizeTextMaxSize="70" />
+        <InputField id="repr-8" width="130" height="75" position="427 -93 0" resizeTextMaxSize="70" />
+    </Panel>
+
+        <InputField id="notes" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="32" width="2320" height="492" position="-1172 -1244 0" />
+
+</Panel>

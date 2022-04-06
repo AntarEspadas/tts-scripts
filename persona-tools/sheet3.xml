@@ -1,0 +1,67 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Panel color="#00000000" width="2500" height="3500" scale="-0.125 -0.125 0.125" position="0 0 -5.1" verticalOverflow="Overflow">
+
+    <Defaults>
+        <InputField color="#00000000" textAlignment="MiddleCenter" onEndEdit="saveValue" horizontalOverflow="Wrap" resizeTextForBestFit="true" resizeTextMinSize="10" resizeTextMaxSize="500" pivot="0 1" />
+        <InputField class="header" resizeTextMaxSize="60" fontStyle="Bold" height="70" />
+        <InputField class="worked-block" characterValidation="Decimal" />
+    </Defaults>
+
+    <InputField class="header" id="character" width="845" position="-814 1472 0" />
+    <InputField class="header" id="alias" width="385" position="-814 1367 0" />
+    <InputField class="header" id="arcan" width="260" position="-231 1367 0" />
+    <InputField class="header" id="birthday" width="260" position="310 1472 0" />
+    <InputField class="header" id="sign" width="255" position="315 1370 0" />
+    <InputField class="header" id="age" width="130" position="693 1472 0" characterValidation="Decimal" />
+
+    <InputField id="hometown" width="680" height="75" position="-844 1091 0" />
+    <InputField id="parents" width="910" height="75" position="-1073 922 0" />
+    <InputField id="events" lineType="MultiLineNewLine" textAlignment="UpperLeft" resizeTextForBestFit="false" fontSize="30" width="910" height="325" position="-1073 755 0" />
+
+    <InputField id="education" width="600" height="75" position="-716 241 0" />
+    <InputField id="job" width="875" height="75" position="-987 148 0" />
+    <InputField id="experiences" width="950" height="75" position="-1068 -35 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="hobbies" width="950" height="75" position="-1074 -201 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <InputField id="fears" width="735" height="75" position="-852 -429 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="ambition" width="735" height="75" position="-852 -522 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="dream" width="735" height="75" position="-852 -618 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="philosophy" width="735" height="75" position="-852 -711 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <InputField id="height" width="140" height="75" position="149 241 0" />
+    <InputField id="weight" width="140" height="75" position="575 247 0" />
+    <InputField id="hair" width="850" height="75" position="149 145 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="eyes" width="850" height="75" position="149 45 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="piercing" width="1000" height="75" position="2 -147 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="scars" width="1000" height="75" position="2 -322 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="clothing" width="800" height="75" position="203 -426 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="build" width="800" height="75" position="203 -519 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <InputField id="relationshiop" width="705" height="75" position="-821 -981 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="languages" width="705" height="75" position="-821 -1072 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="allies" width="708" height="132" position="-824 -1189 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="rivals" width="701" height="132" position="-824 -1348 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="fame" width="701" height="75" position="-824 -1517 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <InputField id="fod" width="765" height="75" position="241 -792 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="music" width="765" height="75" position="241 -885 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="television" width="765" height="75" position="241 -980 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="literature" width="765" height="75" position="242 -1073 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <InputField id="financial" width="800" height="75" position="204 -1368 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+    <InputField id="housing" width="800" height="75" position="204 -1493 0" lineType="MultiLineNewLine" resizeTextMaxSize="25" textAlignment="UpperLeft" />
+
+    <!-- <GridLayout color="#FFFFFF00" cellSize="130 75" spacing="142 20" position="-493 1260 0" constraint="FixedRowCount" constraintCount="2" width="1000" height="200" pivot="0 1">
+        <Panel color="#00000000" />
+        <InputField id="sun" class="worked-block header" />
+        <InputField id="mon" class="worked-block header" />
+        <InputField id="tue" class="worked-block header" />
+        <InputField id="wed" class="worked-block header" />
+        <InputField id="thu" class="worked-block header" />
+        <InputField id="fri" class="worked-block header" />
+        <InputField id="sat" class="worked-block header" />
+    </GridLayout> -->
+
+
+</Panel>

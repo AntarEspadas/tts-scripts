@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <!-- A type that can be either hexColor6, hexColor8, rgbColor, rgbaColor or playerColor -->
+    <xs:simpleType name="color">
+        <xs:union memberTypes="hexColor6 hexColor8 rgbColor rgbaColor playerColor"></xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="hexColor6">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9a-fA-F]{6}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="hexColor8">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9a-fA-F]{8}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rgbColor">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="rgb\(\d{1,3},\d{1,3},\d{1,3}\)"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="rgbaColor">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="rgba\(\d{1,3},\d{1,3},\d{1,3},\d{1,3}\)"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="playerColor">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="White"></xs:enumeration>
+            <xs:enumeration value="Brown"></xs:enumeration>
+            <xs:enumeration value="Red"></xs:enumeration>
+            <xs:enumeration value="Orange"></xs:enumeration>
+            <xs:enumeration value="Yellow"></xs:enumeration>
+            <xs:enumeration value="Green"></xs:enumeration>
+            <xs:enumeration value="Teal"></xs:enumeration>
+            <xs:enumeration value="Blue"></xs:enumeration>
+            <xs:enumeration value="Purple"></xs:enumeration>
+            <xs:enumeration value="Pink"></xs:enumeration>
+            <xs:enumeration value="Grey"></xs:enumeration>
+            <xs:enumeration value="Black"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="alignment">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UpperLeft" />
+            <xs:enumeration value="UpperCenter" />
+            <xs:enumeration value="UpperRight" />
+            <xs:enumeration value="MiddleLeft" />
+            <xs:enumeration value="MiddleCenter" />
+            <xs:enumeration value="MiddleRight" />
+            <xs:enumeration value="LowerLeft" />
+            <xs:enumeration value="LowerCenter" />
+            <xs:enumeration value="LowerRight" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="fontStyle">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Normal" />
+            <xs:enumeration value="Bold" />
+            <xs:enumeration value="Italic" />
+            <xs:enumeration value="BoldAndItalic" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="horizontalOverflow">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Wrap" />
+            <xs:enumeration value="Overflow" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="verticalOverflow">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Truncate" />
+            <xs:enumeration value="Overflow" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="imageType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Simple" />
+            <xs:enumeration value="Sliced" />
+            <xs:enumeration value="Filled" />
+            <xs:enumeration value="Tiled" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="vector">
+        <xs:list itemType="xs:float"></xs:list>
+    </xs:simpleType>
+
+    <xs:simpleType name="vector2">
+        <xs:restriction base="vector">
+            <xs:length value="2"></xs:length>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="vector3">
+        <xs:restriction base="vector">
+            <xs:length value="3"></xs:length>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="vector4">
+        <xs:restriction base="vector">
+            <xs:length value="4"></xs:length>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Type that is a float between 0 and 100 that must have a '%' at the end -->
+    <xs:simpleType name="percentage">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d+(\.\d+)?%"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- Float or percentage -->
+    <xs:simpleType name="floatOrPercentage">
+        <xs:union memberTypes="xs:float percentage"></xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="animationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="Grow" />
+            <xs:enumeration value="FadeIn" />
+            <xs:enumeration value="SlideIn_Left" />
+            <xs:enumeration value="SlideIn_Right" />
+            <xs:enumeration value="SlideIn_Top" />
+            <xs:enumeration value="SlideIn_Bottom" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="position">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Above" />
+            <xs:enumeration value="Below" />
+            <xs:enumeration value="Left" />
+            <xs:enumeration value="Right" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lineType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SingleLine" />
+            <xs:enumeration value="MultiLineSubmit" />
+            <xs:enumeration value="MultiLineNewLine" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="validation">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="Integer" />
+            <xs:enumeration value="Decimal" />
+            <xs:enumeration value="Alphanumeric" />
+            <xs:enumeration value="Name" />
+            <xs:enumeration value="EmailAddress" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="constraint">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FixedColumnCount" />
+            <xs:enumeration value="FixedRowCount" />
+            <xs:enumeration value="Flexible" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="axis">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Horizontal" />
+            <xs:enumeration value="Vertical" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="corner">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UpperLeft" />
+            <xs:enumeration value="UpperRight" />
+            <xs:enumeration value="LowerLeft" />
+            <xs:enumeration value="LowerRight" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="horizontalAlignment">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Left" />
+            <xs:enumeration value="Right" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="transition">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="None" />
+            <xs:enumeration value="ColorTint" />
+            <xs:enumeration value="SpriteSwap" />
+            <xs:enumeration value="Animation" />
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:attributeGroup name="generalAttributes">
+        <xs:attribute name="active" type="xs:boolean" />
+        <xs:attribute name="class" type="xs:string" />
+        <xs:attribute name="id" type="xs:ID" />
+        <xs:attribute name="visibility" type="xs:string" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="textAttributes">
+        <xs:attribute name="text" type="xs:string" />
+        <xs:attribute name="alignment" type="alignment" />
+        <xs:attribute name="color" type="color" />
+        <xs:attribute name="fontStyle" type="fontStyle" />
+        <xs:attribute name="fontSize" type="xs:float" />
+        <xs:attribute name="resizeTextForBestFit" type="xs:boolean" />
+        <xs:attribute name="resizeTextMinSize" type="xs:float" />
+        <xs:attribute name="resizeTextMaxSize" type="xs:float" />
+        <xs:attribute name="horizontalOverflow" type="horizontalOverflow" />
+        <xs:attribute name="verticalOverflow" type="verticalOverflow" />
+        <xs:attribute name="textAlignment" type="alignment" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="imageAttributes">
+        <xs:attribute name="image" type="xs:string" />
+        <xs:attribute name="preserveAspect" type="xs:boolean" />
+        <xs:attribute name="type" type="imageType" />
+        <xs:attribute name="raycastTarget" type="xs:boolean" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="appearanceAttributes">
+        <xs:attribute name="shadow" type="color" />
+        <xs:attribute name="shadowDistance" type="vector2" />
+        <xs:attribute name="outline" type="color" />
+        <xs:attribute name="outlineSize" type="vector2" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="layoutElementAttributes">
+        <xs:attribute name="ignoreLayout" type="xs:boolean" />
+        <xs:attribute name="minWidth" type="xs:float" />
+        <xs:attribute name="minHeight" type="xs:float" />
+        <xs:attribute name="preferredWidth" type="xs:float" />
+        <xs:attribute name="preferredHeight" type="xs:float" />
+        <xs:attribute name="flexibleWidth" type="xs:float" />
+        <xs:attribute name="flexibleHeight" type="xs:float" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="positionSizeAttributesBasic">
+        <xs:attribute name="rectAlignment" type="alignment" />
+        <xs:attribute name="width" type="floatOrPercentage" />
+        <xs:attribute name="height" type="floatOrPercentage" />
+        <xs:attribute name="offsetXY" type="vector2" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="positionSizeAttributesAdvanced">
+        <xs:attribute name="anchorMin" type="vector2" />
+        <xs:attribute name="anchorMax" type="vector2" />
+        <xs:attribute name="sizeDelta" type="vector2" />
+        <xs:attribute name="pivot" type="vector2" />
+        <xs:attribute name="position" type="vector3" />
+        <xs:attribute name="rotation" type="vector3" />
+        <xs:attribute name="scale" type="vector3" />
+        <xs:attribute name="offsetMin" type="vector2" />
+        <xs:attribute name="offsetMax" type="vector2" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="draggingAttributes">
+        <xs:attribute name="allowDragging" type="xs:boolean" />
+        <xs:attribute name="restrictDraggingToParentBounds" type="xs:boolean" />
+        <xs:attribute name="returnToOriginalPositionWhenReleased" type="xs:boolean" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="animationAttributes">
+        <xs:attribute name="showAnimation" type="animationType" />
+        <xs:attribute name="hideAnimation" type="animationType" />
+        <xs:attribute name="showAnimationDelay" type="xs:float" />
+        <xs:attribute name="hideAnimationDelay" type="xs:float" />
+        <xs:attribute name="animationDuration" type="xs:float" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="tooltipAttributes">
+        <xs:attribute name="tooltip" type="xs:string" />
+        <xs:attribute name="tooltipBorderColor" type="color" />
+        <xs:attribute name="tooltipBackgroundColor" type="color" />
+        <xs:attribute name="tooltipBorderImage" type="xs:string" />
+        <xs:attribute name="tooltipBackgroundImage" type="xs:string" />
+        <xs:attribute name="tooltipTextColor" type="color" />
+        <xs:attribute name="tooltipPosition" type="position" />
+        <xs:attribute name="tooltipOffset" type="xs:float" />
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="eventAttributes">
+        <xs:attribute name="onClick" type="xs:string" />
+        <xs:attribute name="onMouseEnter" type="xs:string" />
+        <xs:attribute name="onMouseExit" type="xs:string" />
+        <xs:attribute name="onDrag" type="xs:string" />
+        <xs:attribute name="onBeginDrag" type="xs:string" />
+        <xs:attribute name="onEndDrag" type="xs:string" />
+        <xs:attribute name="onMouseDown" type="xs:string" />
+        <xs:attribute name="onMouseUp" type="xs:string" />
+        <xs:attribute name="onSubmit" type="xs:string" />
+    </xs:attributeGroup>
+
+    <!-- Include all other attribute groups in this file -->
+    <xs:attributeGroup name="commonAttributes">
+        <xs:attributeGroup ref="generalAttributes" />
+        <xs:attributeGroup ref="textAttributes" />
+        <xs:attributeGroup ref="imageAttributes" />
+        <xs:attributeGroup ref="appearanceAttributes" />
+        <xs:attributeGroup ref="layoutElementAttributes" />
+        <xs:attributeGroup ref="positionSizeAttributesBasic" />
+        <xs:attributeGroup ref="positionSizeAttributesAdvanced" />
+        <xs:attributeGroup ref="draggingAttributes" />
+        <xs:attributeGroup ref="animationAttributes" />
+        <xs:attributeGroup ref="tooltipAttributes" />
+        <xs:attributeGroup ref="eventAttributes" />
+    </xs:attributeGroup>
+
+    <xs:complexType name="uiAttributes" abstract="true">
+        <xs:attributeGroup ref="commonAttributes"></xs:attributeGroup>
+    </xs:complexType>
+
+    <xs:complexType name="uiElement">
+        <xs:complexContent>
+            <xs:extension base="uiAttributes">
+                <xs:sequence>
+                    <xs:any minOccurs="0" maxOccurs="unbounded"></xs:any>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="textElement">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attributeGroup ref="commonAttributes"></xs:attributeGroup>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:element name="Panel">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="padding" type="vector4"></xs:attribute>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ProgressBar">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="fillImage" type="xs:string" />
+                    <xs:attribute name="fillImageColor" type="color" />
+                    <xs:attribute name="percentage" type="xs:float" />
+                    <xs:attribute name="showPercentageText" type="xs:boolean" />
+                    <xs:attribute name="percentageTextFormat" type="xs:string" />
+                    <xs:attribute name="textColor" type="color" />
+                    <xs:attribute name="textShadow" type="color" />
+                    <xs:attribute name="textOutline" type="color" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="InputField">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="onEndEdit" type="xs:string"></xs:attribute>
+                    <xs:attribute name="onValueChanged" type="xs:string"></xs:attribute>
+                    <xs:attribute name="placeholder" type="xs:string" />
+                    <xs:attribute name="interactable" type="xs:boolean" />
+                    <xs:attribute name="colors" type="xs:string" />
+                    <xs:attribute name="lineType" type="lineType" />
+                    <xs:attribute name="characterValidation" type="validation" />
+                    <xs:attribute name="caretBlinkRate" type="xs:float" />
+                    <xs:attribute name="caretWidth" type="xs:float" />
+                    <xs:attribute name="caretColor" type="color" />
+                    <xs:attribute name="selectionColor" type="color" />
+                    <xs:attribute name="readOnly" type="xs:boolean" />
+                    <xs:attribute name="textColor" type="color" />
+                    <xs:attribute name="characterLimit" type="xs:int" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Text element, can have all common attributes and the child must be simple string content -->
+    <xs:element name="Text">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="textElement">
+                    <xs:attributeGroup ref="commonAttributes"></xs:attributeGroup>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Image" type="uiElement"></xs:element>
+
+    <xs:element name="Defaults">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded"></xs:any>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GridLayout">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="padding" type="vector4" />
+                    <xs:attribute name="spacing" type="vector2" />
+                    <xs:attribute name="cellSize" type="vector2" />
+                    <xs:attribute name="startCorner" type="corner" />
+                    <xs:attribute name="startAxis" type="axis" />
+                    <xs:attribute name="childAlignment" type="alignment" />
+                    <xs:attribute name="constraint" type="constraint" />
+                    <xs:attribute name="constraintCount" type="xs:int" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Toggle">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="onValueChanged" type="xs:string" />
+                    <xs:attribute name="interactable" type="xs:boolean" />
+                    <xs:attribute name="textColor" type="color" />
+                    <xs:attribute name="colors" type="xs:string" />
+                    <xs:attribute name="isOn" type="xs:boolean" />
+                    <xs:attribute name="toggleWidth" type="xs:float" />
+                    <xs:attribute name="toggleHeight" type="xs:float" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Button">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="textShadow" type="color" />
+                    <xs:attribute name="textOutline" type="xs:string" />
+                    <xs:attribute name="icon" type="xs:string" />
+                    <xs:attribute name="iconWidth" type="xs:float" />
+                    <xs:attribute name="iconColor" type="color" />
+                    <xs:attribute name="iconAlignment" type="horizontalAlignment" />
+                    <xs:attribute name="padding" type="vector4" />
+                    <xs:attribute name="transition" type="transition" />
+                    <xs:attribute name="pressedSprite" type="xs:string" />
+                    <xs:attribute name="disabledSprite" type="xs:string" />
+                    <xs:attribute name="colors" type="xs:string" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="VerticalLayout">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="padding" type="vector4" />
+                    <xs:attribute name="spacing" type="xs:float" />
+                    <xs:attribute name="childAlignment" type="alignment" />
+                    <xs:attribute name="childForceExpandWidth" type="xs:boolean" />
+                    <xs:attribute name="childForceExpandHeight" type="xs:boolean" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="VerticalScrollView">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="onValueChanged" type="xs:string" />
+                    <xs:attribute name="horizontal" type="xs:boolean" />
+                    <xs:attribute name="vertical" type="xs:boolean" />
+                    <!-- <xs:attribute name="movementType" type="Unrestricted" /> -->
+                    <xs:attribute name="elasticity" type="xs:float" />
+                    <xs:attribute name="inertia" type="xs:boolean" />
+                    <xs:attribute name="decelerationRate" type="xs:float" />
+                    <xs:attribute name="scrollSensitivity" type="xs:float" />
+                    <!-- <xs:attribute name="horizontalScrollbarVisibility" type="Permanent" />
+                    <xs:attribute name="verticalScrollbarVisibility" type="Permanent" /> -->
+                    <xs:attribute name="noScrollbar" type="xs:boolean"></xs:attribute>
+                    <xs:attribute name="scrollbarBackgroundColor" type="color" />
+                    <xs:attribute name="scrollbarColors" type="xs:string" />
+                    <xs:attribute name="scrollbarImage" type="xs:string" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TableLayout">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="padding" type="vector4" />
+                    <xs:attribute name="cellSpacing" type="xs:float" />
+                    <xs:attribute name="columnWidths" type="vector" />
+                    <xs:attribute name="automaticallyAddColumns" type="xs:boolean" />
+                    <xs:attribute name="automaticallyRemoveEmptyColumns" type="xs:boolean" />
+                    <xs:attribute name="autoCalculateHeight" type="xs:boolean" />
+                    <xs:attribute name="useGlobalCellPadding" type="xs:boolean" />
+                    <xs:attribute name="cellPadding" type="vector4" />
+                    <xs:attribute name="cellBackgroundImage" type="xs:string" />
+                    <xs:attribute name="cellBackgroundColor" type="color" />
+                    <xs:attribute name="rowBackgroundImage" type="xs:string" />
+                    <xs:attribute name="rowBackgroundColor" type="color" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Row">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="dontUseTableRowBackground" type="xs:boolean" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Cell">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="columnSpan" type="xs:int" />
+                    <xs:attribute name="dontUseTableCellBackground" type="xs:boolean" />
+                    <xs:attribute name="overrideGlobalCellPadding" type="xs:boolean" />
+                    <xs:attribute name="padding" type="vector4" />
+                    <xs:attribute name="childForceExpandWidth" type="xs:boolean" />
+                    <xs:attribute name="childForceExpandHeight" type="xs:boolean" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema> 

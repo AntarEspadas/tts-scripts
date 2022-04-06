@@ -1,0 +1,22 @@
+filter = require "../utils/filter"
+map = require "../utils/map"
+
+function activate_white_fog()
+    local objects = getObjects()
+    local fog_emitters = filter(objects, function(obj) return obj.getName() == "Fog Multi Colour" end)
+
+    for _, fog_emitter in ipairs(fog_emitters) do
+        fog_emitter.AssetBundle.playLoopingEffect(1)
+    end
+
+end
+
+function disable_fog()
+    local objects = getObjects()
+    local fog_emitters = filter(objects, function(obj) return obj.getName() == "Fog Multi Colour" end)
+
+    for _, fog_emitter in ipairs(fog_emitters) do
+        fog_emitter.AssetBundle.playLoopingEffect(0)
+    end
+
+end
