@@ -11,11 +11,14 @@
         <Row preferredHeight="200"></Row>
     </Defaults>
 
-    <Button id="done-button" width="500" height="250" onClick="done">
+    <Button rectAlignment="MiddleLeft" id="done-button" width="500" height="250" onClick="done">
         <Text>Done</Text>
     </Button>
-    <Button id="add-button" width="500" height="250" onClick="add">
+    <Button rectAlignment="MiddleLeft" id="add-button" width="500" height="250" onClick="add">
         <Text>Add</Text>
+    </Button>
+    <Button rectAlignment="MiddleRight" id="stop-button" width="500" height="250" onClick="stop">
+        <Text>Stop</Text>
     </Button>
 
     <Panel id="main-table" color="#00000000" position="0 -700 0">

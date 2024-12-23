@@ -94,6 +94,14 @@ function done()
     DoneEditingCallback()
 end
 
+function stop()
+    local url, password = table.unpack(split(self.getGMNotes(), "\n"))
+    local headers = {
+        ["Authorization"] = password
+    }
+    WebRequest.custom(url .. "/stop", "GET", true, "_", headers)
+end
+
 function finishAdding()
 end
 
@@ -143,9 +151,13 @@ function play(_, _, id)
         ["Authorization"] = password
     }
     WebRequest.custom(url .. "/play?list=" .. json, "GET", true, "_", headers, function (response)
-        if response.text ~= "success" then
-            print(response.text)
+        local result = JSON.decode(response.text)
+        if result.status ~= 1 then
+            broadcastToColor(JSON.encode(result.failures), "Black")
         end
+        -- if response.text ~= "success" then
+        --     print(response.text)
+        -- end
     end)
 end
 
