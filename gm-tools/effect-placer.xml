@@ -1,0 +1,33 @@
+<?xml-model href="../ui.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<Panel height="500" active="false" id="effect-placer-panel" returnToOriginalPositionWhenReleased="false" allowDragging="true" color="White" visibility="black" width="250" rectAlignment="MiddleRight">
+    <Defaults>
+        <Button onClick="handleEffectClicked" resizeTextForBestFit="true" resizeTextMaxSize="500" resizeTextMinSize="0" />
+        <Row preferredHeight="25" />
+    </Defaults>
+    <TableLayout>
+        <Row>
+            <Cell>
+                <InputField text="1" resizeTextForBestFit="true" resizeTextMaxSize="500" resizeTextMinSize="0" characterValidation="Decimal" onValueChanged="handleAdjustsize"></InputField>
+            </Cell>
+            <Cell>
+                <Button text="X" onClick="handleCloseDialogue"></Button>
+            </Cell>
+        </Row>
+        <Row>
+            <Button id="agi" text="agi"></Button>
+        </Row>
+        <Row>
+            <Button id="bufu" text="bufu"></Button>
+        </Row>
+        <Row>
+            <Button id="garu" text="garu"></Button>
+        </Row>
+        <Row>
+            <Button id="zio" text="zio"></Button>
+        </Row>
+        <Row>
+            <Button id="knocked-down" text="Knocked Down"></Button>
+        </Row>
+    </TableLayout>
+</Panel>

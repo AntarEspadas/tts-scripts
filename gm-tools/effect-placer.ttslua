@@ -1,0 +1,129 @@
+require "utils.first"
+
+Effect = {guid, positoinOffset, duration, loopingEffect, triggerEffect, attach}
+
+Effects = {
+    agi = {
+        triggerEffect = 0,
+        duration = 4,
+    },
+    bufu = {
+        triggerEffect = 0,
+        duration = 3,
+    },
+    zio = {
+        triggerEffect = 0,
+        duration = 3,
+    },
+    garu = {
+        triggerEffect = 0,
+        duration = 5,
+    },
+    ["knocked-down"] = {
+        loopingEffect = 1,
+        attach = true
+    },
+}
+
+PanelId = "effect-placer-panel"
+
+Position = {0, 2, 0}
+Target = nil
+Size = 1
+BagGuid = "b4cbc8"
+
+function onScriptingButtonDown(index, player_color)
+    print(index)
+    if player_color ~= "Black" then return end
+    local players = Player.getPlayers()
+    local black = first(players, function(p) return p.color == "Black" end)
+    if index == 1 then
+        Target = black.getHoverObject()
+        if Target == nil then
+            Position = black.getPointerPosition()
+        else
+            Position = Target.positionToWorld({0, 0, 0})
+        end
+        UI.setAttribute(PanelId, "active", true)
+        return
+    end
+    if index == 2 then
+        local obj = black.getHoverObject()
+        obj.removeAttachments()
+    end
+end
+
+
+-- {effectId, position, target}
+function placeEffect(args)
+    local effectId = args.effectId
+    local target = args.target
+    local position = getPosition(args.position, target)
+    local effect = Effects[effectId]
+    local bag = getObjectFromGUID(BagGuid)
+
+    local obj = cloneFromBag(bag, effectId, {position = position})
+    if not effect.attach then
+        obj.setLock(true)
+    end
+    obj.setPosition(position)
+    obj.scale(Size)
+    obj.setRotation({0,0,0})
+
+    if effect.attach and target then
+        obj.addAttachment(target)
+    end
+
+    Wait.time(
+        function()
+            local loopingEffect = effect.loopingEffect
+            if loopingEffect ~= nil then
+                obj.AssetBundle.playLoopingEffect(loopingEffect)
+            end
+            local triggerEffect = effect.triggerEffect
+            if triggerEffect ~= nil then
+                obj.AssetBundle.playTriggerEffect(triggerEffect)
+            end
+        end,
+        0.25
+    )
+    if effect.duration ~= nil and not effect.attach then
+        Wait.time(
+            function()
+                obj.destroy()
+            end,
+            effect.duration + 0.25
+        )
+    end	
+end
+
+function cloneFromBag(bag, effectId, cloneArgs)
+    local objs = bag.getObjects()
+    local obj = first(objs, function(o) return o.name == effectId end)
+    local guid = obj.guid
+    obj = bag.takeObject({guid = guid})
+    local clone = obj.clone(cloneArgs)
+    bag.putObject(obj)
+    return clone
+end
+
+function handleEffectClicked(_, color, id)
+    UI.setAttribute(PanelId, "active", false)
+    placeEffect({effectId = id, position = Position, target = Target})
+end
+
+function handleAdjustsize(_, value)
+    Size = tonumber(value) or 1
+end
+
+function handleCloseDialogue()
+    UI.setAttribute(PanelId, "active", false)
+end
+
+function getPosition(position, object)
+    local position = Position
+    if Target ~= nil then
+        position = Target.positionToWorld({0, 0, 0})
+    end
+    return position
+end
