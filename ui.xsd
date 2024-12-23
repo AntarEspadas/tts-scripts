@@ -557,4 +557,39 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="ToggleButton">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="onValueChanged" type="xs:string" />
+                    <xs:attribute name="interactable" type="xs:boolean" />
+                    <xs:attribute name="textColor" type="color" />
+                    <xs:attribute name="colors" type="xs:string" />
+                    <xs:attribute name="isOn" type="xs:boolean" />
+                    <xs:attribute name="textShadow" type="color" />
+                    <xs:attribute name="textOutline" type="color" />
+                    <xs:attribute name="icon" type="xs:string" />
+                    <xs:attribute name="iconWidth" type="xs:float" />
+                    <xs:attribute name="iconColor" type="color" />
+                    <xs:attribute name="iconAlignment" type="horizontalAlignment" />
+                    <xs:attribute name="padding" type="vector4" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ToggleGroup">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="uiElement">
+                    <xs:attribute name="allowSwitchOff" type="xs:boolean" />
+                    <xs:attribute name="toggleBackgroundImage" type="xs:string" />
+                    <xs:attribute name="toggleBackgroundColor" type="color" />
+                    <xs:attribute name="toggleSelectedImage" type="xs:string" />
+                    <xs:attribute name="toggleSelectedColor" type="color" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema> 
